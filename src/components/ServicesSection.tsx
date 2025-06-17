@@ -43,19 +43,11 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 relative">
-      <motion.div 
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="absolute top-1/3 right-0 w-72 h-72 bg-[#9245FC]/10 rounded-full filter blur-3xl"
-      />
+    <section id="services" className="py-20 relative mt-32">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section className="relative min-h-screen py-20 md:py-32 overflow-hidden flex items-center">
       {/* Background with Gradient */}
       <motion.div 
         initial={{ opacity: 0 }}

@@ -21,7 +21,7 @@ export const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-300 overflow-hidden rounded-full ${
           isScrolled 
             ? 'py-3 shadow-lg shadow-black/20' 
             : 'py-4'

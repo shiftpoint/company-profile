@@ -62,8 +62,7 @@ export const FeaturesSection = () => {
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -80,7 +79,7 @@ export const FeaturesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10"
         >
           {features.map((feature, index) => (
             <motion.div 
