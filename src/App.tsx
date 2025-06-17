@@ -4,11 +4,14 @@ import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
 import { AboutSection } from './components/AboutSection';
 import { FeaturesSection } from './components/FeaturesSection';
+import { PortfolioSection } from './components/PortfolioSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { SectionWrapper } from './components/SectionWrapper';
+
 export function App() {
-  return <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
+  return <div className="min-h-screen w-full bg-[#14141F] from-gray-900 to-gray-800 text-white font-sans">
       <style jsx global>{`
         @font-face {
           font-family: 'CircularStd';
@@ -23,10 +26,13 @@ export function App() {
         <Header />
         <main>
           <HeroSection />
-          <ServicesSection />
-          <AboutSection />
-          <FeaturesSection />
-          <TestimonialsSection />
+          <SectionWrapper>
+            <ServicesSection />
+            <AboutSection />
+            <FeaturesSection />
+            <PortfolioSection />
+            <TestimonialsSection />
+          </SectionWrapper>
           <ContactSection />
         </main>
         <Footer />

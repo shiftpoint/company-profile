@@ -15,6 +15,19 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 0; // Approximate height of your fixed header
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - headerOffset,
+        behavior: 'smooth',
+      });
+    }
+    setIsMenuOpen(false); // Close mobile menu after clicking a link
+  };
+
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center w-fit m-auto">
       <motion.header
@@ -50,20 +63,33 @@ export const Header = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="hidden md:flex items-center space-x-8"
             >
-              <a href="#services" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">
+              <a 
+                href="#services" 
+                onClick={(e) => { e.preventDefault(); handleScrollToSection('services'); }}
+                className="text-white/70 hover:text-white transition-colors whitespace-nowrap"
+              >
                 Services
               </a>
-              <a href="#about" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">
+              <a 
+                href="#about" 
+                onClick={(e) => { e.preventDefault(); handleScrollToSection('about'); }}
+                className="text-white/70 hover:text-white transition-colors whitespace-nowrap"
+              >
                 About
               </a>
-              <a href="#features" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">
+              <a 
+                href="#features" 
+                onClick={(e) => { e.preventDefault(); handleScrollToSection('features'); }}
+                className="text-white/70 hover:text-white transition-colors whitespace-nowrap"
+              >
                 Features
               </a>
-              <a href="#testimonials" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">
+              <a 
+                href="#testimonials" 
+                onClick={(e) => { e.preventDefault(); handleScrollToSection('testimonials'); }}
+                className="text-white/70 hover:text-white transition-colors whitespace-nowrap"
+              >
                 Testimonials
-              </a>
-              <a href="#contact" className="text-white/70 hover:text-white transition-colors whitespace-nowrap">
-                Contact
               </a>
             </motion.div>
 
@@ -74,7 +100,10 @@ export const Header = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="hidden md:block"
             >
-              <button className="px-6 py-2 rounded-full bg-gradient-to-r from-[#9245FC] to-purple-600 text-white hover:opacity-90 transition-all whitespace-nowrap">
+              <button 
+                onClick={(e) => { e.preventDefault(); handleScrollToSection('contact'); }}
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-[#9245FC] to-purple-600 text-white hover:opacity-90 transition-all whitespace-nowrap"
+              >
                 Get Started
               </button>
             </motion.div>
@@ -108,22 +137,38 @@ export const Header = () => {
                     transition={{ duration: 0.3 }}
                     className="flex flex-col space-y-3"
                   >
-                    <a href="#services" className="text-white/80 hover:text-white transition-colors">
+                    <a 
+                      href="#services" 
+                      onClick={(e) => { e.preventDefault(); handleScrollToSection('services'); }}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
                       Services
                     </a>
-                    <a href="#about" className="text-white/80 hover:text-white transition-colors">
+                    <a 
+                      href="#about" 
+                      onClick={(e) => { e.preventDefault(); handleScrollToSection('about'); }}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
                       About
                     </a>
-                    <a href="#features" className="text-white/80 hover:text-white transition-colors">
+                    <a 
+                      href="#features" 
+                      onClick={(e) => { e.preventDefault(); handleScrollToSection('features'); }}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
                       Features
                     </a>
-                    <a href="#testimonials" className="text-white/80 hover:text-white transition-colors">
+                    <a 
+                      href="#testimonials" 
+                      onClick={(e) => { e.preventDefault(); handleScrollToSection('testimonials'); }}
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
                       Testimonials
                     </a>
-                    <a href="#contact" className="text-white/80 hover:text-white transition-colors">
-                      Contact
-                    </a>
-                    <button className="w-full py-2 rounded-full bg-gradient-to-r from-[#9245FC] to-purple-600 text-white hover:opacity-90 transition-all">
+                    <button 
+                      onClick={(e) => { e.preventDefault(); handleScrollToSection('contact'); }}
+                      className="w-full py-2 rounded-full bg-gradient-to-r from-[#9245FC] to-purple-600 text-white hover:opacity-90 transition-all"
+                    >
                       Get Started
                     </button>
                   </motion.div>

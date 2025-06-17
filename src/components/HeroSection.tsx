@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen py-20 md:py-32 overflow-hidden flex items-center">
-      {/* Background with Gradient */}
+    <section className="relative min-h-screen py-[120px] md:py-32 overflow-hidden flex items-center">
+      {/* Background Image with Rotation and Blur */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -13,14 +13,20 @@ export const HeroSection = () => {
         className="absolute inset-0 z-0"
       >
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            background: 'linear-gradient(135deg, #1a1a1a 0%, #3d2b6d 50%, #1a1a1a 100%)',
-            filter: 'blur(8px)',
-            transform: 'scale(1.1)'
+            backgroundImage: 'url("/images/bg-1.jpg")',
+            filter: 'blur(1px)',
+            transform: 'rotate(180deg) scale(1)'
           }}
         />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-black/85 backdrop-blur-sm w-full h-full scale-110"
+          style={{ filter: 'blur(2px)' }}
+        ></motion.div>
       </motion.div>
 
       {/* Decorative elements */}
